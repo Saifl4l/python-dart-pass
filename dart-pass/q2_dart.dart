@@ -1,28 +1,44 @@
-class animal{
-  void printName(String name){
-    print('$name: \nthe name of animal is $name ');
-  }
-  void printSound(String sound){
-    print('the sound of animal is $sound \n');
-  }
+abstract class animal {
+  void printName();
+  void printSound();
 }
 
-class dog extends animal{}
-class cat extends animal{}
-class cow extends animal{}
+class dog extends animal {
+  @override
+  void printName() => print('animal is ==> Dog');
 
+  @override
+  void printSound() =>
+      print('sound is ==> woof\n');
+}
 
-void main(){
-  var Dog = new dog();
-  var Cat = new cat();
-  var Cow = new cow();
+class cat extends animal {
+  @override
+  void printName()=> print('animal is ==> Cat');
 
-  Dog.printName('Dog');
-  Dog.printSound('woof');
+  @override
+  void printSound()=>
+      print('sound is ==> meow \n');
+}
 
-  Cat.printName('Cat');
-  Cat.printSound('meow');
-  
-  Cow.printName('Cow');
-  Cow.printSound('moo');
+class cow extends animal {
+  @override
+  void printName()=>
+      print('animal is ==> Cow');
+
+  @override
+  void printSound()=> print('sound is ==> moo \n');
+}
+void main() {
+  var animal1=dog();
+  animal1.printName();
+  animal1.printSound();
+
+  var animal2=cat();
+  animal2.printName();
+  animal2.printSound();
+
+  var animal3=cow();
+  animal3.printName();
+  animal3.printSound();
 }
